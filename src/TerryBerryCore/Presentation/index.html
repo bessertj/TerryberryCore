@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <h2>A Terryberry sample application.</h2>
+
+
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script>
+        $.getJSON("http://localhost:60573/api/helloworld", function (data) {
+            var items = [];
+            $.each(data, function (key, val) {
+                items.push("<li id='" + key.Message + "'>" + val.Message + "</li>");
+            });
+
+            $("<ul/>", {
+                "class": "my-new-list",
+                html: items.join("")
+            }).appendTo("body");
+        });
+    </script>
+</body>
+</html>
