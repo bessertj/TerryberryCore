@@ -3,7 +3,7 @@ using TerryBerryCore.Domain.Entities;
 
 namespace TerryBerryCore.Domain.Abstract
 {
-    public interface IMessage
+    public interface IHelloWorldRepository
     {
         List<HelloWorld> GetMessages();
     }
