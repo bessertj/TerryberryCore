@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using TerryBerryCore.Domain.Abstract;
+using TerryBerryCore.Infrastructure;
 
 namespace TerryBerryCore
 {
@@ -50,7 +52,7 @@ namespace TerryBerryCore
             // the collection, and build the container. If you want
             // to dispose of the container at the end of the app, 
             // be sure to keep a reference to it as a property or field.
-            // builder.Register<MyType>().As<IMyType>();
+            builder.RegisterType<HelloWorldRepository>().As<IHelloWorldRepository>();
             builder.Populate(services);
             ApplicationContainer = builder.Build();
 
@@ -70,8 +72,7 @@ namespace TerryBerryCore
 
             app.UseMvc();
 
-            // If you want to dispose of resources that have been resolved in the 
-            // application container, register for the "Application Stopped" event.
+            // Dispose of resources that have been resolved in the application container.
             appLifetime.ApplicationStopped.Register(() => this.ApplicationContainer.Dispose());
         }
     }
