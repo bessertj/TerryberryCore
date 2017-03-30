@@ -9,12 +9,14 @@
     <h2>A Terryberry sample application.</h2>
 
 
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
     <script>
         $.getJSON("http://localhost:60573/api/helloworld", function (data) {
             var items = [];
             $.each(data, function (key, val) {
-                items.push("<li id='" + key.Message + "'>" + val.Message + "</li>");
+                items.push("<li id='" + key + "'>" + val.message + "</li>");
             });
 
             $("<ul/>", {
